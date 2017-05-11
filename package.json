@@ -1,0 +1,23 @@
+{
+  "name": "ng-snackbar.es6",
+  "version": "1.0.0",
+  "description": "Snackbar angular.js module in ES6.",
+  "main": "build/module.js",
+  "scripts": {
+    "build": "./node_modules/webpack/bin/webpack.js",
+    "watch": "./node_modules/webpack/bin/webpack.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ohpyupi",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.1",
+    "html-loader": "^0.4.5",
+    "style-loader": "^0.17.0",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.5.1"
+  }
+}
