@@ -5,12 +5,14 @@ const webpack = require('webpack');
 
 module.exports = {
 	entry: {
-		module: './src/index.js',
+		main: './src/index.js',
 	},
 	output: {
 		filename: '[name].js',
 		path: path.resolve(__dirname, './build'),
 	},
+	plugins: [
+	],
 	node: {
 		fs: 'empty',
 		net: 'empty',

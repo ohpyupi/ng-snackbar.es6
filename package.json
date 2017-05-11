@@ -1,8 +1,8 @@
 {
   "name": "ng-snackbar.es6",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Snackbar angular.js module in ES6.",
-  "main": "build/module.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js",
     "watch": "./node_modules/webpack/bin/webpack.js --watch",
