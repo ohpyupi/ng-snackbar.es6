@@ -8,7 +8,7 @@
 	min-width: 288px;
 	max-width: 568px;
 	position: fixed;
-	bottom: -24px;
+	height: 56px;
 	left: 12px;
 	opacity: 0;
 	transition: opacity .25s ease-in-out;

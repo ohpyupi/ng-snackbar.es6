@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 module.exports = {
 	entry: {
-		main: './src/index.js',
+		app: `./app/app.module.js`,
 	},
 	output: {
 		filename: '[name].js',
@@ -25,7 +25,7 @@ module.exports = {
 				exclude: /(node_modules|bower_components)/,
 				loader: 'babel-loader',
 				query: {
-					presets: ['es2015']
+					presets: ['es2015', 'react']
 				}
 			},
 			{
