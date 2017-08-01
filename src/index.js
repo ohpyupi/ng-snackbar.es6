@@ -17,8 +17,8 @@ export default class ErrorService {
 		this.closeBtn = null;
 		this.$state = $state;
 		this.directionFrom = params.directionFrom ? params.directionFrom : `bottom`;
-		this.xi = params.xi ? params.xi : -24;
-		this.xf = params.xf ? params.xf : 12;
+		this.xi = params.xi !== undefined ? params.xi : -24;
+		this.xf = params.xf !== undefined ? params.xf : 12;
 		this.closeLabel = params.closeLabel ? params.closeLabel : `DISMISS`;
 		this.duration = params.duration ? params.duration : .75;
 		this.init();
