@@ -1,11 +1,10 @@
 {
   "name": "ng-snackbar.es6",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Snackbar angular.js module in ES6.",
   "main": "src/index.js",
   "scripts": {
     "start": "node server.js",
-    "postinstall": "npm run build",
     "nodemon": "./node_modules/nodemon/bin/nodemon.js ./server.js",
     "watch": "./node_modules/webpack/bin/webpack.js --watch --progress",
     "build": "./node_modules/webpack/bin/webpack.js --progress",
