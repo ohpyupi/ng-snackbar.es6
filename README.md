@@ -13,11 +13,11 @@ Import the module to the angular app.
 /*
 ** main angular module (app.module.js)
 */
-import uirouter from 'angular-ui-router';
-import Snackbar from 'ng-snackbar.es6';
+import angular from 'angular';
+import uirouter from '@uirouter/angularjs';
 
 angular.module('app', [uirouter])
-.service('snackbar', Snackbar);
+...
 ```
 
 ## Usage
@@ -25,13 +25,16 @@ Once the module is registered to the main module, you can bring the module servi
 controllers, or services.
 
 ```
+import Snackbar from 'ng-snackbar.es6';
+
 export class HomeController {
-  constructor(snackbar) {
-    this.snackbar = snackbar;
-  }
-  testMethod() {
-    this.snackbar.flash("Hello world!");
-  }
+	constructor($state) {
+		this.snackbar = new Snackbar($state);
+	}
+	fetchUserData() {
+		...
+		this.snackbar.flash("Successfully loaded a user data!");
+	}
 }
 ```
 ## Methods
