@@ -1,14 +1,16 @@
 import React from 'react';
-import Snackbar from '../../../src/index.js';
+import SnackbarGenerator from '../../../src/index.js';
+
+const Snackbar = SnackbarGenerator({
+	directionFrom: `bottom`,
+	closeLabel: `Close`,
+	duration: .75,
+});
 
 export default class Container extends React.Component {
 	constructor(props) {
 		super(props);
-		this.$snackbar = new Snackbar(this.props.transition.router.stateService, {
-			directionFrom: `bottom`,
-			closeLabel: `Close`,
-			duration: .75,
-		});
+		this.$snackbar = new Snackbar(this.props.transition.router.stateService);
 	}
 	componentWillMount() {
 	}

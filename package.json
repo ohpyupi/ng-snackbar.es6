@@ -1,6 +1,6 @@
 {
   "name": "ng-snackbar.es6",
-  "version": "0.2.3",
+  "version": "0.3.3",
   "description": "Snackbar angular.js module in ES6.",
   "main": "src/index.js",
   "scripts": {
