@@ -1,6 +1,7 @@
 import {UIRouterReact, servicesPlugin, pushStateLocationPlugin} from '@uirouter/react';
 
 import Home from './containers/home';
+import Redirect from './containers/redirect';
 
 let router = new UIRouterReact();
 router.plugin(servicesPlugin);
@@ -11,6 +12,13 @@ let states = [
 		name: 'home',
 		url: '/',
 		component: Home,
+		onEnter: (trans, state)=>{
+		},
+	},
+	{
+		name: 'redirect',
+		url: '/redirect/:id',
+		component: Redirect,
 		onEnter: (trans, state)=>{
 		},
 	},

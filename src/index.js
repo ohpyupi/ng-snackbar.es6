@@ -41,6 +41,13 @@ export default (params={})=>{
 			}, 1);
 			if (args[0]) this.$state.go(args[0], args[1] ? args[1]: {});
 		}
+		redirect(stateName, stateParams={}) {
+			/*
+			** @param {string} stateName (required)
+			** @param {object} stateParams (optional)
+			*/
+			this.$state.go(stateName, stateParams);
+		}
 		remove() {
 			let body = document.getElementsByTagName('body')[0];
 			let positionAnimator = new Animator(this.xf, this.xi, this.duration);

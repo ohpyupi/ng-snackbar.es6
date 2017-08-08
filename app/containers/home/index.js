@@ -16,15 +16,27 @@ export default class Container extends React.Component {
 	}
 	componentDidMount() {
 	}
-	handleClick() {
+	handleFlash() {
 		let messageInput = document.querySelector(`#messageInput`);
 		this.$snackbar.flash(messageInput.value ? messageInput.value : "Hello world!");
+	}
+	handleRedirect() {
+		let paramInput = document.querySelector('#paramInput');
+		this.$snackbar.redirect('redirect', {
+			id: paramInput.value,
+		});
 	}
 	render() {
 		return (
 			<section>
-				<input id='messageInput' type='text'/>
-				<button onClick={()=>this.handleClick()}>Click me!</button>
+				<div id='flash'>
+					<input id='messageInput' type='text'/>
+					<button onClick={()=>this.handleFlash()}>Click me!</button>
+				</div>
+				<div id='redirect'>
+					<input id='paramInput' type='text'/>
+					<button onClick={()=>this.handleRedirect()}>Test redirect()</button>
+				</div>
 			</section>
 		);
 	}
