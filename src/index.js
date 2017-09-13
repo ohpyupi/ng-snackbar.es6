@@ -3,16 +3,17 @@ import './styles.css';
 import Animator from 'dokebi/services/accelerator';
 
 export default (params={})=>{
+	/*
+	** @param {string} params.directionFrom "top" or "bottom" (default: bottom)
+	** @param {number} params.xi (default: -24)
+	** @param {number} params.xf (default: 12)
+	** @param {string} params.closeLabel (default: "DISMISS")
+	** @param {number} params.duration (default: .75)
+	** @param {string} params.router (default: 'ui-router', availables: 'ui-router' and 'react-router')
+	**/
 	return class ErrorService {
 		constructor($state) {
 			'ngInject';
-			/*
-			** @param {string} params.directionFrom "top" or "bottom" (default: bottom)
-			** @param {number} params.xi (default: -24)
-			** @param {number} params.xf (default: 12)
-			** @param {string} params.closeLabel (default: "DISMISS")
-			** @param {number} params.duration (default: .75)
-			**/
 			this.snackbar = null;
 			this.content = null;
 			this.message = null;
@@ -23,6 +24,7 @@ export default (params={})=>{
 			this.xf = params.xf !== undefined ? params.xf : 12;
 			this.closeLabel = params.closeLabel ? params.closeLabel : `DISMISS`;
 			this.duration = params.duration ? params.duration : .75;
+			this.router = params.router ? params.router : 'ui-router';
 			this.init();
 		}
 		flash(message='', ...args) {
@@ -39,7 +41,7 @@ export default (params={})=>{
 				this.snackbar.style.opacity = opacityAnimator.square(x);
 				this.snackbar.style[this.directionFrom] = `${positionAnimator.square(x)}px`;
 			}, 1);
-			if (args[0]) this.$state.go(args[0], args[1] ? args[1]: {});
+			if (args[0]) this.redirect(args[0], args[1] ? args[1]: {});
 		}
 		redirect(stateName, stateParams={}) {
 			/*

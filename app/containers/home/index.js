@@ -22,7 +22,7 @@ export default class Container extends React.Component {
 	}
 	handleRedirect() {
 		let paramInput = document.querySelector('#paramInput');
-		this.$snackbar.redirect('redirect', {
+		this.$snackbar.flash(`Redirect to: "redirect" state with id=${paramInput.value}`,'redirect', {
 			id: paramInput.value,
 		});
 	}
