@@ -10,21 +10,21 @@ router.plugin(pushStateLocationPlugin);
 let states = [
 	{
 		name: 'home',
-		url: '/',
+		url: '/ui-router',
 		component: Home,
 		onEnter: (trans, state)=>{
 		},
 	},
 	{
 		name: 'redirect',
-		url: '/redirect/:id',
+		url: '/ui-router/redirect/:id',
 		component: Redirect,
 		onEnter: (trans, state)=>{
 		},
 	},
 ];
 
-router.urlRouter.otherwise("/");
+router.urlRouter.otherwise("/ui-router");
 
 for (let i = 0; i < states.length; i++) {
 	let state = states[i];

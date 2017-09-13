@@ -5,7 +5,8 @@ const webpack = require('webpack');
 
 module.exports = {
 	entry: {
-		app: `./app/app.module.js`,
+		[`ui-router-app`]: `./app/ui-router/app.module.js`,
+		[`react-router-app`]: `./app/react-router/app.module.js`,
 	},
 	output: {
 		filename: '[name].js',

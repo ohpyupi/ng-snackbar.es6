@@ -12,13 +12,13 @@ export default (params={})=>{
 	** @param {string} params.router (default: 'ui-router', availables: 'ui-router' and 'react-router')
 	**/
 	return class ErrorService {
-		constructor($state) {
+		constructor(routerMachine) {
 			'ngInject';
 			this.snackbar = null;
 			this.content = null;
 			this.message = null;
 			this.closeBtn = null;
-			this.$state = $state;
+			this.routerMachine = routerMachine;
 			this.directionFrom = params.directionFrom ? params.directionFrom : `bottom`;
 			this.xi = params.xi !== undefined ? params.xi : -24;
 			this.xf = params.xf !== undefined ? params.xf : 12;
@@ -43,12 +43,19 @@ export default (params={})=>{
 			}, 1);
 			if (args[0]) this.redirect(args[0], args[1] ? args[1]: {});
 		}
-		redirect(stateName, stateParams={}) {
+		redirect(...args) {
 			/*
-			** @param {string} stateName (required)
-			** @param {object} stateParams (optional)
+			** @param {string} args[0] (required) args[0] will be a state's name in ui-router
+			** while a path url in react-router.
+			** @param {object} args[1] (optional) args[1] works only if using ui-router.
 			*/
-			this.$state.go(stateName, stateParams);
+			if (this.router === 'ui-router') {
+				this.routerMachine.go(args[0], args[1]);
+			} else if (this.router === 'react-router') {
+				this.routerMachine.push(args[0]);
+			} else {
+				throw Error(`Unavailable value for "params.router".`);
+			}
 		}
 		remove() {
 			let body = document.getElementsByTagName('body')[0];
