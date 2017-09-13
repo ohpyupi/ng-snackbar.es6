@@ -25,16 +25,21 @@ controllers, or services.
 ```
 import Snackbar from 'ng-snackbar.es6';
 
+// Recommended to generate Snackbar class module in other configuration file
+// and feed it to the point where it needs to be initiated.
+const Snackbar = SnackbarGenerator({
+ duration: 1,
+ closeLabel: "CLOSE",
+ xi: -13,
+ xf: 20,
+ directionFrom: "top",
+ router: 'ui-router',
+});
+
 export class HomeController {
  constructor($state) {
   // Snackbar needs $state when initiated, which is one of the dependencies from ui-router end.
-  this.snackbar = new Snackbar($state, {
-   duration: 1,
-   closeLabel: "CLOSE",
-   xi: -13,
-   xf: 20,
-   directionFrom: "top",
-  });
+  this.snackbar = new Snackbar($state);
  }
  fetchUserData() {
   ...
@@ -45,19 +50,22 @@ export class HomeController {
 
 ## Usage - React.js & UI Router
 ```
-import Snackbar from 'ng-snackbar.es6';
+import SnackbarGenerator from 'ng-snackbar.es6';
+
+const Snackbar = SnackbarGenerator({
+ duration: 1,
+ closeLabel: "CLOSE",
+ xi: -13,
+ xf: 20,
+ directionFrom: "top",
+ router: 'ui-router',
+});
 
 export class Home extends React.Component {
  constructor(props) {
   super(props);
   // In React with UI Router, you can access to $state dependency from "props".
-  this.snackbar = new Snackbar(this.props.transition.router.stateService, {
-   duration: 1,
-   closeLabel: "CLOSE",
-   xi: -13,
-   xf: 20,
-   directionFrom: "top",
-  });
+  this.snackbar = new Snackbar(this.props.transition.router.stateService);
  }
  fetchData() {
   ...
@@ -72,18 +80,21 @@ export class Home extends React.Component {
 ```
 import Snackbar from 'ng-snackbar.es6';
 
+const Snackbar = SnackbarGenerator({
+ duration: 1,
+ closeLabel: "CLOSE",
+ xi: -13,
+ xf: 20,
+ directionFrom: "top",
+ router: 'react-router',
+});
+
 export class Home extends React.Component {
  constructor(props) {
   super(props);
    // To utilize redirection feature, you need to pass react router's history service.
    // The history service can be accessed from "props".
-   this.snackbar = new Snackbar(this.props.history, {
-   duration: 1,
-   closeLabel: "CLOSE",
-   xi: -13,
-   xf: 20,
-   directionFrom: "bottom",
-  });
+   this.snackbar = new Snackbar(this.props.history);
  }
  fetchUserData {
   ...
