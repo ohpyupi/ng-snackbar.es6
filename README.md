@@ -23,7 +23,7 @@ Once the module is registered to the main module, you can bring the module servi
 controllers, or services.
 
 ```
-import Snackbar from 'ng-snackbar.es6';
+import SnackbarGenerator from 'ng-snackbar.es6';
 
 // Recommended to generate Snackbar class module in other configuration file
 // and feed it to the point where it needs to be initiated.
@@ -78,7 +78,7 @@ export class Home extends React.Component {
 
 ## Usage - React.js & React Router
 ```
-import Snackbar from 'ng-snackbar.es6';
+import SnackbarGenerator from 'ng-snackbar.es6';
 
 const Snackbar = SnackbarGenerator({
  duration: 1,
